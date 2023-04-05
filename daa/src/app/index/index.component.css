@@ -1,0 +1,270 @@
+.container {  
+    width: 100%;
+    font-family: 'Rampart One', cursive;
+    object-fit: fill;
+  }
+  
+  .header { 
+    width: 100%;
+    display: flex;
+    background: linear-gradient(to top, transparent, 25%, #003049);
+    height: 70px;
+    justify-content: center;
+    position: fixed;
+    z-index: 9;
+    top: 0;
+  }
+  
+  
+  .header nav{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .header li{
+    align-self: center;
+    list-style-type: none;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+  }
+  
+  .header a{
+    font-size: 30px;
+    letter-spacing: .36em;
+  }
+  
+  .header li:hover{
+    cursor: pointer;
+  }
+  
+  .header a {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    color: white;
+  }
+  
+  .header a:before{
+    content: '';
+    background: #c9ab81;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .header a:hover {
+   background-position: 0;
+  }
+  
+  .header a:hover::before{
+    width: 100%;
+  }
+  
+  .main {  
+    width: 100%;
+  }
+  
+  .intro {
+     display: flex;
+     width: 100%;
+     background-image: url('https://i.pinimg.com/736x/3e/b8/fe/3eb8fe91bea1d24d0b48a99fb4b9b670.jpg');
+     height: 100vh;
+     justify-content: center;
+     align-items: center;
+     background-repeat: none;
+     color: #EAE2B7;
+    }
+  
+    .intro-flex{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      max-width: 30%;
+    }
+  
+    .title{
+      font-size: 250px;
+    }
+  
+    .intro-flex h3{
+      font-size: 40px;
+    }
+  
+    .intro-flex button{
+      font-size: 23px;
+      margin-top: 50px;
+      padding: 25px;
+      letter-spacing: 6px;  
+    }
+  
+  
+  
+  .title{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .menuwrapper{
+    background-image: 
+    linear-gradient(
+        rgba(25, 209, 231, 0.5),
+        rgba(243, 17, 224, 0.5)
+      ),
+    url("https://i.pinimg.com/474x/30/8f/51/308f519fcd2689523b81312ef9dd1422.jpg");
+    height: 700px;
+  }
+  
+  .menutitles{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    margin: auto;
+    padding-top: 50px;
+    font-size: 60px;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .title-flex{
+    display: flex;
+    gap: 20px;
+  }
+  
+  .title-flex li{
+    position: relative;
+    list-style-type: none;
+    font-size: 30px;
+    transition: all 0.3s ease-in-out;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+  }
+  
+  .title-flex li:hover{
+    cursor: pointer;
+    color:rgb(255, 255, 255);
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    background-position: 0;
+  }
+  
+   
+   .title-flex a:hover::before{
+     width: 100%;
+   }
+  
+  .title-flex li:before{
+    content: '';
+    background: #c9ab81;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .menu { 
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    flex: 1;
+    height: 60%;
+  }
+  
+  .entradas{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 13rem;
+      gap: 10px;
+  }
+  
+  .entradas-container{
+      width: 12rem;
+      padding: 0.2rem 0.5rem;
+      background: #eae2b7;
+      border: 0.1rem solid #1f1e34;
+      border-radius: 0.3rem;
+      display: grid;
+      grid: auto auto / 1fr auto;
+      gap: 0.2rem;
+      align-items: start;
+      page-break-inside: avoid;
+      break-inside: avoid;
+  }
+  
+  .foodTitle, .foodPrice, .foodDesc{
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  .foodDesc{
+    grid-area: 2 / 1 / 3 / 3;
+    text-align: start;
+    color: #F59223;
+  }
+  
+  .foodPrice{
+    color: #D6314D;
+    text-align: end;
+  }
+  
+  .foodTitle{
+    text-align: start;
+    color: #003049;
+  }
+  
+  .menu h1{
+    letter-spacing: 20px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #c9ab81;
+  }
+  
+  .menu h2{
+    letter-spacing: 10px;
+    margin-top: 50px;
+    margin-left: 50px;
+    color: #c9ab81;
+    border-bottom: 1px solid #c9ab81;
+  }
+  
+  a{
+    text-decoration: none;
+  }
+  
+  .mar{
+    width: 40%;
+    height: 800px;
+    margin-top: 50px;
+  }
+  
+  .tacos{
+    width: 40%;
+    height: 800px;
+    margin-top: 200px;
+  }
+  
+  .postres{
+    width: 40%;
+    height: 800px;
+    margin-top: 200px;
+  }

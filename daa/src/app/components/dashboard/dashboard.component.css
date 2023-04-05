@@ -1,0 +1,156 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 60px 1fr;
+  }
+  
+  .header {
+    grid-area: 1 / 1 / 2 / 3;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 60px 1fr;
+  }
+  
+  .logo {
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f44336;
+  }
+  
+  .bottom-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+  
+  .info{
+    display: flex;
+    margin-left: 40px;
+    height: 100%;
+  }
+  
+  .info > img{
+    border-radius: 50%;
+    width: 80px;
+    object-fit: cover;
+  }
+  
+  .info > div{
+    display: flex;
+    margin-left: 20px;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 10px;
+    margin-right: 20px;
+  }
+  
+  .aside {
+    grid-area: 2 / 1 / 3 / 2;
+    background-color: #1f2837;
+    display: grid;
+    color: white;
+    padding: 1rem;
+  }
+  
+  .aside h1 {
+    margin: 0;
+    padding: 0.5em;
+    font-size: 30px;
+  }
+  
+  .dashboard {
+    font-size: 30px;
+    margin-right: 10px;
+  }
+  
+  .nav {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .nav a {
+    position: sticky;
+    padding: 10px;
+    display: flex;
+    list-style-type: none;
+    color: #767b85;
+    border-bottom: 1px solid #e0e8f5;
+  }
+  
+  .nav span {
+    align-self: center;
+  }
+  
+  .self {
+    justify-self: flex-end;
+  }
+  
+  a:link {
+    text-decoration: none;
+  }
+  
+  .nav a:hover {
+    font-weight: 900;
+    cursor: pointer;
+    color: #f44336;
+  }
+  
+  
+  .main {
+    display: flex;
+    background-color: #e0e8f5;
+    grid-area: 2 / 2 / 3 / 3;
+    padding: 4rem;
+    gap: 1rem;
+    box-shadow: inset 0 5px 5px #e2e8f0;
+    overflow-y: auto;
+  }
+  
+  .graphs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    height: auto;
+    order: 1;
+    overflow-y: auto;
+  }
+  
+  .graph {
+    width: 100%;
+  }
+  
+  .reservations {
+    width: 60%;
+    order: 2;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    overflow-y: auto;
+  }
+  
+  .card {
+    width: 300px;
+    height: 250px;
+    background-color: #fafaf9;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    border: 2px solid #dfe0eb;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+  
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }

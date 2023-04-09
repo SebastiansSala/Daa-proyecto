@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { AddComponent } from './add/add.component';
 import { UploadComponent } from './upload/upload.component';
+import { AuthService } from 'src/app/services/auth.service';
 
 Chart.register(...registerables);
 
@@ -19,7 +20,7 @@ interface Reservation {
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  constructor(private dialog: MatDialog){}
+  constructor(private dialog: MatDialog, public authService: AuthService){}
   reservations: Reservation[] = [
     { name: 'Juan', guests: 2, time: '12:00 PM' },
     { name: 'Maria', guests: 4, time: '1:30 PM' },
@@ -70,6 +71,7 @@ export class DashboardComponent {
       this.reservations.splice(index, 1);
     }
   }
+
   ngOnInit() {
     const canvas = document.getElementById('myChart') as HTMLCanvasElement;
     const ctx = canvas.getContext('2d');

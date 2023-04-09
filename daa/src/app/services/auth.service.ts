@@ -11,20 +11,20 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   signUpUser(user: any) {
-    return this.http.post<any>(this.URL + '/signup', user);
+    return this.http.post<any>(this.URL + '/register', user);
   }
 
   signInUser(user: any) {
-    return this.http.post<any>(this.URL + '/signin', user);
+    return this.http.post<any>(this.URL + '/login', user);
   }
 
   loggedIn() {
     return !!localStorage.getItem('token');
   }
 
-  logout() {
+  logout(){
     localStorage.removeItem('token');
-    this.router.navigate(['/tasks']);
+    this.router.navigate(['/index']);
   }
 
   getToken() {

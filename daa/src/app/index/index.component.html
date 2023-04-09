@@ -1,141 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div class="container">
-    <div class="header">
-      <nav>
-        <ul>
-          <li><a href="index#home">Home</a></li>
-          <li><a href="index#menu">Menu</a></li>
-        </ul>
+<div class="container">
+  <div class="header">
+    <nav>
+      <ul>
+        <li><a href="index#home">Home</a></li>
+        <li><a href="index#menu">Menu</a></li>
+        <li *ngIf="authService.loggedIn(); else showLoginButton">
+          <a routerLink="/login" routerLinkActive="active">Reserva YA!</a>
+        </li>
+        <ng-template #showLoginButton>
+          <li><button (click)="openLoginDialog()">Reserva YA!</button></li>
+        </ng-template>
+      </ul>
+    </nav>
+  </div>
+
+  <section id="home" class="main">
+    <div class="intro">
+      <div class="intro-flex">
+        <p class="title">TACOS</p>
+        <h3>Restaurant</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
+          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
+          felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+          consequat massa
+        </p>
+        <button
+          mat-raised-button
+          style="background-color: #c9ab81"
+          (click)="openLoginDialog()"
+        >
+          Reserva YA!
+        </button>
+        <button
+          mat-raised-button
+          style="background-color: #c9ab81"
+          (click)="openRegisterDialog()"
+        >
+          Reserva YA!
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="menuwrapper">
+    <div class="menutitles">
+      <p>MENU</p>
+      <nav class="title-flex">
+        <li><a (click)="selectedMenu = 'hamburguesas'">Hamburguesas</a></li>
+        <li><a (click)="selectedMenu = 'pizzas'">Pizzas</a></li>
+        <li><a (click)="selectedMenu = 'tacos'">Tacos</a></li>
       </nav>
     </div>
-
-    <section id='home' class="main"> 
-      <div class="intro">
-        <div class="intro-flex">
-          <p class="title">
-            TACOS
-          </p>
-          <h3>
-            Restaurant
-          </h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
-            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-          </p>
-          <button mat-raised-button style="background-color: #c9ab81;" (click)="openLoginDialog()">Reserva YA!</button>
-          <button mat-raised-button style="background-color: #c9ab81;" (click)="openRegisterDialog()">Reserva YA!</button>
+    <div class="menu" id="menu">
+      <div class="entradas">
+        <div class="entradas-container" *ngFor="let item of getMenuItems()">
+          <h3 class="foodtitle" style="color: #003049">{{ item.title }}</h3>
+          <h4 class="foodPrice">{{ item.price }}</h4>
+          <p class="foodDesc" style="color: #f59223">{{ item.desc }}</p>
         </div>
       </div>
-    </section>
-
-    <section class="menuwrapper">
-      <div class="menutitles">
-        <p>MENU</p>
-        <nav class="title-flex">
-          <li><p>Hamburguesas</p></li>
-          <li>Pizzas</li>
-          <li>Tacos</li>
-          <li>Postres</li>
-        </nav>
-      </div>
-      <div class="menu" id="menu">
-        <div class="entradas">
-            <div class="entradas-container">
-              <h3 class="foodtitle" style="color: #003049;">Jamburguer</h3>
-              <h4 class="foodPrice">$300</h4>
-              <p class="foodDesc" style="color: #F59223;">Great american foodarstart
-                arstartsartarstearsntar
-                arstarosierte
-              </p>
-            </div>
-            <div class="entradas-container">
-              <h3 class="foodtitle" style="color: #003049;">Jamburguer</h3>
-              <h4 class="foodPrice">$300</h4>
-              <p class="foodDesc" style="color: #F59223;">Great american food</p>
-            </div>
-            <div class="entradas-container">
-              <h3 class="foodtitle" style="color: #003049;">Jamburguer</h3>
-              <h4 class="foodPrice">$300</h4>
-              <p class="foodDesc" style="color: #F59223;">Great american foodarstart
-                arstartsartarstearsntar
-                arstarosierte
-              </p>
-            </div>
-            <div class="entradas-container">
-              <h3 class="foodtitle" style="color: #003049;">Jamburguer</h3>
-              <h4 class="foodPrice">$300</h4>
-              <p class="foodDesc" style="color: #F59223;">Great american food</p>
-            </div>
-        </div>
-
-        <div class="entradas">
-          <div class="entradas-container">
-            <h3 class="foodtitle" style="color: #003049;">Jamburguer</h3>
-            <h4 class="foodPrice">$300</h4>
-            <p class="foodDesc" style="color: #F59223;">Great american food</p>
-          </div>
-          <div class="entradas-container">
-            <h3 class="foodtitle" style="color: #003049;">Jamburguer</h3>
-            <h4 class="foodPrice">$300</h4>
-            <p class="foodDesc" style="color: #F59223;">Great american food</p>
-          </div>
-          <div class="entradas-container">
-            <h3 class="foodtitle" style="color: #003049;">Jamburguer</h3>
-            <h4 class="foodPrice">$300</h4>
-            <p class="foodDesc" style="color: #F59223;">Great american food</p>
-          </div>
-          <div class="entradas-container">
-            <h3 class="foodtitle" style="color: #003049;">Jamburguer</h3>
-            <h4 class="foodPrice">$300</h4>
-            <p class="foodDesc" style="color: #F59223;">Great american foodarstart
-              arstartsartarstearsntar
-              arstarosierte
-            </p>
-          </div>
-        </div>
-
-        <div class="entradas">
-          <div class="entradas-container">
-            <h3 class="foodtitle" style="color: #003049;">Jamburguer</h3>
-            <h4 class="foodPrice">$300</h4>
-            <p class="foodDesc" style="color: #F59223;">Great american food</p>
-          </div>
-          <div class="entradas-container">
-            <h3 class="foodtitle" style="color: #003049;">Jamburguer</h3>
-            <h4 class="foodPrice">$300</h4>
-            <p class="foodDesc" style="color: #F59223;">Great american foodarstart
-              arstartsartarstearsntar
-              arstarosierte
-            </p>
-          </div>
-          <div class="entradas-container">
-            <h3 class="foodtitle" style="color: #003049;">Jamburguer</h3>
-            <h4 class="foodPrice">$300</h4>
-            <p class="foodDesc" style="color: #F59223;">Great american foodarstart
-              arstartsartarstearsntar
-              arstarosierte
-            </p>
-          </div>
-          <div class="entradas-container">
-            <h3 class="foodtitle" style="color: #003049;">Jamburguer</h3>
-            <h4 class="foodPrice">$300</h4>
-            <p class="foodDesc" style="color: #F59223;">Great american food</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-</body>
-</html>
+    </div>
+  </section>
+</div>

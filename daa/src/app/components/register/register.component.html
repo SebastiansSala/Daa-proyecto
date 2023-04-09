@@ -1,37 +1,44 @@
 <body>
-        <form (ngSubmit)="onSubmit()">
-            <h1>Crear Cuenta</h1>
-            <div class="inputs">
-              <mat-form-field appearance="fill">
-                <mat-label for="email">Enter your email</mat-label>
-                <input matInput placeholder="pat@example.com" id="email" name="email"  [(ngModel)]="  user.email" required>
-                <button mat-icon-button matSuffix>
-                  <mat-icon class="material-icons">email</mat-icon>
-                </button>
-              </mat-form-field>
-            <mat-form-field appearance="fill">
-              <mat-label for="password">Enter your password</mat-label>
-              <input matInput [type]="hide ? 'password' : 'text'"  id="password" name="password" [(ngModel)]="user.password" required>
-              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </button>
-            </mat-form-field>
-            </div>
-            <div class="puesto-container">
-              <div class="textbox">
-                <p>Escoge tu puesto</p>
-              </div>
-              <div class="btn-group">
-                <label>
-                  <input type="radio" name="admin" autocomplete="off" checked required>Client
-                </label>
-                <label>
-                  <input type="radio" name="admin" autocomplete="off" checked required>Admin
-                </label>
-              </div> 
-              <div class="submit">
-                <button mat-raised-button>Basic</button>
-              </div>
-            </div>  
-          </form>  
+  <form (ngSubmit)="onSubmit()">
+    <h1>Crear Cuenta</h1>
+    <div class="inputs">
+      <mat-form-field appearance="fill">
+        <mat-label for="email">Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          id="email"
+          name="email"
+          [(ngModel)]="user.email"
+          required
+        />
+        <button mat-icon-button matSuffix>
+          <mat-icon class="material-icons">email</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label for="password">Enter your password</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          id="password"
+          name="password"
+          [(ngModel)]="user.password"
+          required
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="submit">
+      <button mat-raised-button>Basic</button>
+    </div>
+  </form>
 </body>

@@ -9,16 +9,16 @@ router.get('/', (req, res) => {
     res.send('hello')
 });
 
-router.post('/signup', async (req, res) => {
-    const { email, password } = req.body;
+router.post('/register', async (req, res) => {
+    const { email, password} = req.body;
     const newUser = new User({email, password});
     await newUser.save();
 		const token = await jwt.sign({_id: newUser._id}, 'secretkey');
     res.status(200).json({token});
 });
 
-router.post('/signin', async (req, res) => {
-    const { email, password } = req.body;
+router.post('/login', async (req, res) => {
+    const { email, password} = req.body;
 
     const user = await User.findOne({email});
     if (!user) return res.status(401).send('The email doesnt exists');

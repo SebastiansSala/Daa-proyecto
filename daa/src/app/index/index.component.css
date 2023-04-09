@@ -78,6 +78,7 @@
      display: flex;
      width: 100%;
      background-image: url('https://i.pinimg.com/736x/3e/b8/fe/3eb8fe91bea1d24d0b48a99fb4b9b670.jpg');
+     object-fit: cover;
      height: 100vh;
      justify-content: center;
      align-items: center;
@@ -96,10 +97,11 @@
     }
   
     .title{
-      font-size: 250px;
+      font-size: 100px;
     }
   
     .intro-flex h3{
+      margin-top: 80px;
       font-size: 40px;
     }
   
@@ -140,6 +142,7 @@
   }
   
   .title-flex{
+    margin: 30px 0;
     display: flex;
     gap: 20px;
   }
@@ -175,29 +178,25 @@
     height: 3px;
     transition: all 0.3s ease-in-out;
   }
-  
-  .menu { 
-    padding-top: 50px;
+
+  .menu{
     display: flex;
     justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    flex: 1;
-    height: 60%;
+    width: 100%;
   }
   
   .entradas{
       display: flex;
       justify-content: center;
       flex-direction: column;
-      align-items: center;
       flex-wrap: wrap;
-      width: 13rem;
+      height: 500px;
+      width: 400px;
       gap: 10px;
   }
   
   .entradas-container{
-      width: 12rem;
+      width: 208px;
       padding: 0.2rem 0.5rem;
       background: #eae2b7;
       border: 0.1rem solid #1f1e34;
@@ -205,6 +204,7 @@
       display: grid;
       grid: auto auto / 1fr auto;
       gap: 0.2rem;
+      height: auto;
       align-items: start;
       page-break-inside: avoid;
       break-inside: avoid;

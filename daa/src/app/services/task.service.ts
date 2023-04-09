@@ -10,10 +10,10 @@ export class TaskService {
   constructor(private http: HttpClient) { }
 
   getTasks() {
-    return this.http.get<any>(this.URL + '/tasks');
+    return this.http.get<any>(this.URL + '/reservations');
   }
 
   getPrivateTasks() {
-    return this.http.get<any>(this.URL + '/private-tasks');
+    return this.http.get<any>(this.URL + '/private-reservations');
   }
 }

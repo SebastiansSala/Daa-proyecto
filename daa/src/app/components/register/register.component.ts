@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service'
+import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router'
 import { DialogRef } from '@angular/cdk/dialog';
 
@@ -28,6 +28,7 @@ export class RegisterComponent {
       .subscribe(
         res => {
           console.log(res);
+          console.log(this.user)
           localStorage.setItem('token', res.token);
           this.dialogRef.close();
         },

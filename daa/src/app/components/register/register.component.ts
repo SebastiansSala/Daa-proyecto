@@ -12,7 +12,8 @@ import { DialogRef } from '@angular/cdk/dialog';
 export class RegisterComponent {
   user = {
     email: '',
-    password: ''
+    password: '',
+    role: ''
   }
 
   constructor(

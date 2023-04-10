@@ -1,4 +1,4 @@
-<body>
+
   <form (ngSubmit)="onSubmit()">
     <h1>Crear Cuenta</h1>
     <div class="inputs">
@@ -37,8 +37,14 @@
         </button>
       </mat-form-field>
     </div>
+    <div class="user-type">
+      <p>Seleccione el tipo de usuario:</p>
+      <mat-radio-group [(ngModel)]="user.role" name="role">
+        <mat-radio-button value="admin">Administrador</mat-radio-button>
+        <mat-radio-button value="client">Cliente</mat-radio-button>
+      </mat-radio-group>
+    </div> 
     <div class="submit">
       <button mat-raised-button>Basic</button>
     </div>
   </form>
-</body>

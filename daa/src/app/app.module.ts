@@ -16,6 +16,7 @@ import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AddComponent } from './components/dashboard/add/add.component';
 import { UploadComponent } from './components/dashboard/upload/upload.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UploadComponent } from './components/dashboard/upload/upload.component'
     LoginComponent,
     RegisterComponent,
     AddComponent,
-    UploadComponent
+    UploadComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,

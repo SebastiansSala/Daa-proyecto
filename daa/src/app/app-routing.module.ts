@@ -5,6 +5,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './components/login/login.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent},
-];
+  { path: 'reservar', component: ReservationComponent},
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

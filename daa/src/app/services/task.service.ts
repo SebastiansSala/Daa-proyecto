@@ -6,11 +6,11 @@ import {HttpClient} from '@angular/common/http'
 })
 export class TaskService {
 
-  private URL = 'http://localhost:3000/api';
+  private URL = 'http://localhost:4000/api';
   constructor(private http: HttpClient) { }
 
   getTasks() {
-    return this.http.get<any>(this.URL + '/reservations');
+    return this.http.get<any>(this.URL + '/reservartions');
   }
 
   getPrivateTasks() {

@@ -9,7 +9,17 @@ import jwtDecode from 'jwt-decode';
 export class AuthService {
 
   private URL = 'http://localhost:4000/api';
+  private userEmailKey = 'userEmail';
+
   constructor(private http: HttpClient, private router: Router) { }
+
+  setUserEmail(email: string): void {
+    localStorage.setItem(this.userEmailKey, email);
+  }
+
+  getUserEmail(): string {
+    return localStorage.getItem(this.userEmailKey) ?? '';
+  }
 
   signUpUser(user: any) {
     return this.http.post<any>(this.URL + '/register', user);

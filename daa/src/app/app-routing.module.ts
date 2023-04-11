@@ -9,8 +9,7 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
-  { path: 'index', component: IndexComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'index', component: IndexComponent},
   {
     path: 'reservar',
     component: ReservationComponent,
@@ -23,6 +22,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { roles: ['admin'] },
   },
+  { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
 ];
 

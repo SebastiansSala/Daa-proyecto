@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
+import { ReservationService } from 'src/app/services/reservation.service';
 
 interface Persona {
   value: number;
@@ -14,11 +14,23 @@ interface Persona {
 })
 export class ReservationComponent {
 
-  horarios: any[] = [];
-  horarioSeleccionado = '';
-  numPersonas: number[] = [1, 2, 3, 4, 5];;
+  allowedHours = ['6pm', '7pm', '8pm', '9pm'];
+  numOfPeopleAllowed = [1, 2, 3, 4];
 
-  constructor(private http: HttpClient, public authService: AuthService){
-    
+  reservation = {
+    date: '',
+    time: '',
+    numOfPeople: '',
+    email: ''
+  };
+
+  constructor(private reservationService: ReservationService, public authService: AuthService) { }
+
+  onSubmit() {
+    this.reservation.email = this.authService.getUserEmail();
+    this.reservationService.createReservation(this.reservation).subscribe(
+      response => console.log(response),
+      error => console.log(error)
+    );
   }
 }

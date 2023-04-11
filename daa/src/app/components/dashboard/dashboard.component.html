@@ -24,7 +24,7 @@
                 <span class="material-symbols-outlined" style="font-size: 40px; margin-right: 1em">home</span>
                 <span>Home</span>
             </a>
-            <a class="link" routerLink="/reservaciones" routerLinkActive="active">
+            <a class="link" routerLink="/reservar" routerLinkActive="active">
                 <span class="material-symbols-outlined" style="font-size: 40px; margin-right: 1em">account_circle</span>
                 <span>Reservar</span>
             </a>
@@ -50,9 +50,10 @@
         </div>
         <div class="reservations">
             <div class="card" *ngFor="let reservation of reservations">
-                <p>Name: {{ reservation.name }}</p>
-                <p>Guests: {{ reservation.guests }}</p>
+                <p>Name: {{ reservation.date }}</p>
+                <p>Guests: {{ reservation.numOfPeople }}</p>
                 <p>Time: {{ reservation.time }}</p>
+                <p>Name: {{ reservation.email }}</p>
                 <button mat-icon-button color="warn" (click)="removeReservation(reservation)">
                     <mat-icon>delete</mat-icon>
                 </button>

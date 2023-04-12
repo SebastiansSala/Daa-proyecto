@@ -98,10 +98,11 @@
   
     .title{
       font-size: 100px;
+      font-family: 'Rampart One', cursive;
     }
   
     .intro-flex h3{
-      margin-top: 80px;
+      margin-top: 180px;
       font-size: 40px;
     }
   

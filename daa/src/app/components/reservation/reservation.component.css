@@ -1,14 +1,13 @@
-body{
-    display: flex;
-    background-color: #F7F7F7;
-    width: 100%;
-    height: auto;
-}
-
 .wrapper{
     display: flex;
     margin: 0 auto;
-    max-width: 100rem;
+    width: 100vw;
+    background-image: 
+    linear-gradient(
+        rgba(25, 209, 231, 0.5),
+        rgba(243, 17, 224, 0.5)
+      ),
+    url("https://i.pinimg.com/474x/30/8f/51/308f519fcd2689523b81312ef9dd1422.jpg");
 }
 
 li{
@@ -23,7 +22,6 @@ li{
     margin: auto;
     width: 75%;
     margin-top: 40px;
-    background-color: #FFFFFF;
 }
 
 .restaurante{
@@ -53,7 +51,7 @@ li{
     align-items: center;
     position: sticky;
     height: 50px;
-    width: 100%;
+    width: 97%;
     padding-left: 35px;
     border-bottom: 1px solid #D8D9DB;
     top: 0;

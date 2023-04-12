@@ -15,12 +15,13 @@
 form{
     display: flex;
     background-color: aliceblue;
-    width: 300px;
+    width: 260px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 50px 40px;
     border-radius: 5px;
+    box-shadow: 0px 0px 15px 1px rgba(0,0,0,1);
 }
 
 h1{

@@ -22,7 +22,6 @@ export class LoginComponent {
     this.authService.signInUser(this.user)
       .subscribe(
         res => {
-          console.log(res);
           localStorage.setItem('token', res.token);
           this.authService.setUserEmail(this.user.email);
           this.authService.getUserRole() === 'client' ? this.router.navigate(['/reservar']) : this.router.navigate(['/dashboard']);

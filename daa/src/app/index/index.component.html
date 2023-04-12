@@ -4,7 +4,7 @@
       <ul>
         <li><a href="index#home">Home</a></li>
         <li><a href="index#menu">Menu</a></li>
-        <li><a [routerLink]="authService.getUserRole() === 'admin' ? '/reservar' : '/dashboard'">Reserva YA!</a></li>
+        <li><a [routerLink]="authService.getUserRole() === 'client' ? '/reservar' : '/dashboard'">Reserva YA!</a></li>
       </ul>
     </nav>
   </div>
@@ -12,8 +12,7 @@
   <section id="home" class="main">
     <div class="intro">
       <div class="intro-flex">
-        <h1 class="title">TACOS</h1>
-        <h3>Restaurant</h3>
+        <h1 class="title">PONCHOS RESTAURANT</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
           commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus

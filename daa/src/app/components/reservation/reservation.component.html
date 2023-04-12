@@ -15,30 +15,26 @@
                         </ul>
                     </nav>
                     <div class="title" id="resumen">
-                        <p>EL TAQUITO</p>
+                        <p>PONCHOS RESTAURANT</p>
                     </div>
                     <p class="subtitle">RESUMEN</p>
                     <div class="etiquetas-container">
                         <div class="etiquetas">
-                            <p>Lorem ipsum</p>
+                            <p>Envios a tiempo</p>
                         </div>
                         <div class="etiquetas">
-                            <p>Lorem ipsum dolor sit</p>
+                            <p>Bajos costos</p>
                         </div>
                         <div class="etiquetas">
-                            <p>Lorem ipsum dolor</p>
+                            <p>Buen sabor</p>
                         </div>
                         <div class="etiquetas">
-                            <p>Lorem</p>
+                            <p>Excelente Recepcion</p>
                         </div>
                     </div>
                     <div class="resumen">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
-                            sem. Nulla consequat massa
+                            ¡Bienvenidos a nuestro restaurante! Nos complace ofrecer una amplia variedad de platos deliciosos para satisfacer todos los antojos. Desde nuestros deliciosos tacos, con su crujiente y sabroso relleno, hasta nuestras deliciosas pizzas con sus crujientes bordes de queso y nuestras hamburguesas jugosas y llenas de sabor, estamos seguros de que encontrará algo que le encantará. Además, todos nuestros ingredientes son frescos y de la más alta calidad, y nuestro equipo de chefs está comprometido con la excelencia culinaria. Así que si está buscando una experiencia culinaria inolvidable, ¡no busque más allá de nuestro restaurante!
                         </p>
                     </div>
                     <p class="subtitle" id="fotos">FOTOS</p>
@@ -62,46 +58,19 @@
                     <div class="menu" id="menu">
                         <a routerLink="/index">Ver menu en el sitio web del restaurante</a>
                     </div>
-                    <p class="subtitle" style="margin-bottom: 20px">COMENTARIOS</p>
+                    <p class="subtitle" style="margin-bottom: 20px">COMENTARIOS</p> 
+                    <button mat-raised-button color="warn" (click)='openAddDialog()' class="butoncito">Comment</button>
                     <div class="comentarios">
-                        <div id="comentarios" class="comment-flex">
+                        <div id="comentarios" class="comment-flex" *ngFor="let comment of comments">
                             <div class="comments">
                                 <p class="name">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                                    natoque penatibus et
+                                    {{comment.comentario}}
                                 </p>
                             </div>
                             <div class="profile">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYMa62z19XfXnODX6-HD_08TAO_Dj0USyRoh8ewedittk8iNv4P_rdMS4wQs3IdWRTDnM&usqp=CAU"
                                     class="img-profile" />
-                                <p class="name">Pedro</p>
-                            </div>
-                        </div>
-                        <div class="comment-flex">
-                            <div class="comments">
-                                <p class="name">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                    Aenean commodo
-                                </p>
-                            </div>
-                            <div class="profile">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdPOqRJvJjq5_Lws6om6-nSH095XaDXrHO6yuU-F0MN0ANj0mYpmc_niJz-6WWGkzLyIk&usqp=CAU"
-                                    class="img-profile" />
-                                <p class="name">Maria</p>
-                            </div>
-                        </div>
-                        <div class="comment-flex">
-                            <div class="comments">
-                                <p class="name">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                    Aenean commodo ligula eget dolor. Aenean massa.
-                                </p>
-                            </div>
-                            <div class="profile">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS59YZ5ZS-7LAPTknb4CT9LzT6vJjkpZpXqHQ&usqp=CAU"
-                                    class="img-profile" />
-                                <p class="name">Gorila</p>
+                                <p class="name">{{comment.email}}</p>
                             </div>
                         </div>
                         <a class="link self" routerLink="" (click)="authService.logout()">
@@ -122,11 +91,6 @@
                                 <h1>Haz una Reservacion</h1>
                             </mat-card-header>
                             <mat-card-content>
-                                <div>
-                                    <label for="date">Fecha</label>
-                                    <input matInput type="date" id="date" name="date" [(ngModel)]="reservation.date"
-                                        required>
-                                </div>
                                 <div>
                                     <label for="time">Hora</label>
                                     <select  id="time" name="time" [(ngModel)]="reservation.time" required>

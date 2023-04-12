@@ -1,7 +1,6 @@
 import { Component} from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { MatDialog } from '@angular/material/dialog';
-import { AddComponent } from './add/add.component';
 import { UploadComponent } from './upload/upload.component';
 import { AuthService } from 'src/app/services/auth.service';
 import { ReservationService } from 'src/app/services/reservation.service';
@@ -25,19 +24,6 @@ export class DashboardComponent {
   reservations: Reservation[] = [];
 
   constructor(private dialog: MatDialog, public authService: AuthService, private reservationService: ReservationService){}
-
-  add(): void {
-    const dialogRef = this.dialog.open(AddComponent, {
-      width: '250px',
-      data: { name: '', guests: 1, time: '' },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        this.reservations.push(result);
-      }
-    });
-  }
 
   editReservation(reservation: Reservation) {
     const dialogRef = this.dialog.open(UploadComponent, {

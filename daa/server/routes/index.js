@@ -4,11 +4,8 @@ const router = Router();
 const User = require("../models/User");
 
 const jwt = require("jsonwebtoken");
-const Reservation = require("../models/Reservation");
-
-router.get("/", (req, res) => {
-  res.send("hello");
-});
+const { getAllReservations, createReservation } = require("../controllers/reservation.controller");
+const { createComment, getAllComments } = require("../controllers/comment.controller");
 
 router.post("/register", async (req, res) => {
   const { email, password, role } = req.body;
@@ -52,26 +49,11 @@ async function verifyToken(req, res, next) {
   }
 }
 
-router.post("/reservations", async (req, res) => {
-  try {
-    const { date, numOfPeople, time, email } = req.body;
-    const newReservation = new Reservation({ date, numOfPeople, time, email });
-    await newReservation.save();
-    res.status(201).json(newReservation);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
-});
+router.post('/reservations', createReservation);
+router.get('/reservations', getAllReservations);
 
-router.get("/reservations", async (req, res) => {
-  try {
-    const reservations = await Reservation.find({});
-    res.send(reservations);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
-});
+router.post('/comments', createComment);
+router.get('/comments', getAllComments);
+
 
 module.exports = router;

@@ -189,13 +189,18 @@ form h1{
     gap: 5px;
 }
 
+.butoncito{
+    width: 40%;
+    z-index: 1;
+}
+
 .comments{  
     height: 100%;
     width: 80%;
     order: 2;
     display: flex;
     align-items: center;
-    padding-left: 40px;
+    padding-left: 80px;
 }
 
 .img-profile{

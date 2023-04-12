@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AddComponent } from './components/reservation/add/add/add.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
@@ -14,9 +14,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
-import { AddComponent } from './components/dashboard/add/add.component';
 import { UploadComponent } from './components/dashboard/upload/upload.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
+import { INDEX_COMPONENT } from './index/index.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,8 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     DashboardComponent,
     LoginComponent,
     RegisterComponent,
-    AddComponent,
     UploadComponent,
+    AddComponent,
     ReservationComponent
   ],
   imports: [
@@ -40,6 +40,7 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     MatDialogModule
   ],
   providers: [
+    {provide: INDEX_COMPONENT, useClass: IndexComponent},
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
@@ -47,6 +48,6 @@ import { ReservationComponent } from './components/reservation/reservation.compo
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

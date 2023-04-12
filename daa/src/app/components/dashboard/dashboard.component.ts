@@ -28,18 +28,20 @@ export class DashboardComponent {
 
   editReservation(reservation: Reservation) {
     const dialogRef = this.dialog.open(UploadComponent, {
-      data: {
-        title: 'Edit Reservation',
-        reservation: reservation
-      }
+      data: { reservation }
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: Reservation) => {
       if (result) {
-        const index = this.reservations.indexOf(reservation);
-        this.reservations[index] = result;
+        const updatedReservation: Reservation = { ...reservation, ...result };
+        this.reservationService.updateReservation(updatedReservation)
+          .subscribe(() => {
+            const index = this.reservations.indexOf(reservation);
+            this.reservations[index] = updatedReservation;
+          });
       }
     });
   }
+  
 
   removeReservation(reservation: any):void {
     const index = this.reservations.indexOf(reservation);

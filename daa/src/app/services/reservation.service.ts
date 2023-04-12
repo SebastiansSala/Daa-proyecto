@@ -20,6 +20,11 @@ export class ReservationService {
     return this.http.get<any>(this.URL + '/reservations');
   }
 
+  updateReservation(reservation: any): Observable<any> {
+    console.log(reservation);
+  return this.http.put(`${this.URL}/reservations/${reservation._id}`, reservation);
+}
+
   eliminarReservacion(reservation: any): Observable<any> {
     return this.http.delete(`${this.URL}/reservations/${reservation._id}`);
   }

@@ -17,6 +17,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { UploadComponent } from './components/dashboard/upload/upload.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { INDEX_COMPONENT } from './index/index.component';
+import { UpdateUserComponent } from './components/dashboard/updateUser/update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { INDEX_COMPONENT } from './index/index.component';
     RegisterComponent,
     UploadComponent,
     AddComponent,
-    ReservationComponent
+    ReservationComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,

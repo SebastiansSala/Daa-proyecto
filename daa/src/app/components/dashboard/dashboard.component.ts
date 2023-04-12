@@ -8,6 +8,7 @@ import { ReservationService } from 'src/app/services/reservation.service';
 Chart.register(...registerables);
 
 interface Reservation {
+  id: string;
   date: string;
   numOfPeople: number;
   time: string;
@@ -40,11 +41,14 @@ export class DashboardComponent {
     });
   }
 
-  removeReservation(reservation: Reservation):void {
+  removeReservation(reservation: any):void {
     const index = this.reservations.indexOf(reservation);
     if (index >= 0) {
       this.reservations.splice(index, 1);
     }
+    this.reservationService.eliminarReservacion(reservation).subscribe((res) => {
+      this.getAllReservations();
+    })
   }
   
   getAllReservations(): void {

@@ -4,7 +4,7 @@ const router = Router();
 const User = require("../models/User");
 
 const jwt = require("jsonwebtoken");
-const { getAllReservations, createReservation } = require("../controllers/reservation.controller");
+const { getAllReservations, createReservation, deleteReservation } = require("../controllers/reservation.controller");
 const { createComment, getAllComments } = require("../controllers/comment.controller");
 
 router.post("/register", async (req, res) => {
@@ -51,6 +51,7 @@ async function verifyToken(req, res, next) {
 
 router.post('/reservations', createReservation);
 router.get('/reservations', getAllReservations);
+router.delete('/reservations/:id', deleteReservation);
 
 router.post('/comments', createComment);
 router.get('/comments', getAllComments);

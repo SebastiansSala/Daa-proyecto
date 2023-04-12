@@ -19,4 +19,8 @@ export class ReservationService {
   getAllReservations(): Observable<any> {
     return this.http.get<any>(this.URL + '/reservations');
   }
+
+  eliminarReservacion(reservation: any): Observable<any> {
+    return this.http.delete(`${this.URL}/reservations/${reservation._id}`);
+  }
 }

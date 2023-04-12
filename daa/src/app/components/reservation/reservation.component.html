@@ -12,6 +12,9 @@
                             <li><a href="reservar#fotos">Fotos</a></li>
                             <li><a href="reservar#menu">Menu</a></li>
                             <li><a href="reservar#comentarios">Comentarios</a></li>
+                            <li><a class="link self" routerLink="" (click)="authService.logout()">
+                                <span>Logout</span>
+                            </a></li>
                         </ul>
                     </nav>
                     <div class="title" id="resumen">
@@ -46,9 +49,9 @@
                         <div class="fotos-2" id="fotos">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnPeWQPQLoIgMAlOn6_9FTeOZen05Zt5I6X_Vt5ZTQEMumnmhCfKOiJZOxu3BzU1mQ8q4&usqp=CAU"
                                 alt="tacos" />
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Plateau_van_zeevruchten.jpg/1200px-Plateau_van_zeevruchten.jpg"
+                            <img src="https://media.istockphoto.com/id/1188412964/es/foto/hamburguesa-con-queso-y-patatas-fritas.jpg?b=1&s=612x612&w=0&k=20&c=CAlX3LOk2aYqbL-qEHZ312dFaeNhR2PTZHkQZgFj3T0="
                                 alt="mar" />
-                            <img src="https://www.recetasnestle.com.mx/sites/default/files/styles/crop_recipe_card/public/srh_recipes/46bdda0dbf686c91ca88af0a14a956c4.jpg.webp?itok=DpXFHfZR"
+                            <img src="https://st.depositphotos.com/1003814/5052/i/600/depositphotos_50522615-stock-photo-pizza-with-tomatoes.jpg"
                                 alt="entradas" />
                             <img src="https://www.recetasnestle.com.mx/sites/default/files/styles/crop_recipe_card/public/srh_recipes/54c6cbcbc6d611e056122d64560cd9c1.jpg.webp?itok=j5bk2Uro"
                                 alt="postres" />
@@ -73,11 +76,6 @@
                                 <p class="name">{{comment.email}}</p>
                             </div>
                         </div>
-                        <a class="link self" routerLink="" (click)="authService.logout()">
-                            <span class="material-symbols-outlined"
-                                style="font-size: 40px; margin-right: 1em">keyboard_return</span>
-                            <span>Logout</span>
-                        </a>
                     </div>
                 </mat-card>
                 <div class="reservations">

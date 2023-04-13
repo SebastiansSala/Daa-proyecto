@@ -17,7 +17,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { UploadComponent } from './components/dashboard/reservaciones/upload/upload.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { INDEX_COMPONENT } from './index/index.component';
-import { ReservacionesComponent } from './components/dashboard/reservaciones/reservaciones/reservaciones.component';
+import { ReservacionesComponent } from './components/dashboard/reservaciones/reservaciones.component';
 import { UsuariosComponent } from './components/dashboard/usuarios/usuarios/usuarios.component';
 
 @NgModule({

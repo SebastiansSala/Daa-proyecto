@@ -29,8 +29,8 @@ export class AuthService {
     return this.http.get<any>(this.URL + '/users');
   }
 
-  eliminarUsers(user: any): Observable<any> {
-    return this.http.delete(`${this.URL}/users/${user._id}`);
+  eliminarUsuario(id: string): Observable<any> {
+    return this.http.delete(`${this.URL}/users/${id}`);
   }
 
   signInUser(user: any) {

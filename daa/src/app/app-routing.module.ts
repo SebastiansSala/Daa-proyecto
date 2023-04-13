@@ -6,7 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
-import { ReservacionesComponent } from './components/dashboard/reservaciones/reservaciones/reservaciones.component';
+import { ReservacionesComponent } from './components/dashboard/reservaciones/reservaciones.component';
 import { UsuariosComponent } from './components/dashboard/usuarios/usuarios/usuarios.component';
 
 const routes: Routes = [

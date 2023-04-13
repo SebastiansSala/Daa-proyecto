@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UploadComponent } from '../../upload/upload.component';
+import { UploadComponent } from './upload/upload.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ReservationService } from 'src/app/services/reservation.service';
 

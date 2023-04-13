@@ -14,7 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
-import { UploadComponent } from './components/dashboard/upload/upload.component';
+import { UploadComponent } from './components/dashboard/reservaciones/reservaciones/upload/upload.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { INDEX_COMPONENT } from './index/index.component';
 import { UpdateUserComponent } from './components/dashboard/updateUser/update-user/update-user.component';

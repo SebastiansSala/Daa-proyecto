@@ -4,8 +4,16 @@ const router = Router();
 const User = require("../models/User");
 
 const jwt = require("jsonwebtoken");
-const { getAllReservations, createReservation, deleteReservation, updateReservation } = require("../controllers/reservation.controller");
-const { createComment, getAllComments } = require("../controllers/comment.controller");
+const {
+  getAllReservations,
+  createReservation,
+  deleteReservation,
+  updateReservation,
+} = require("../controllers/reservation.controller");
+const {
+  createComment,
+  getAllComments,
+} = require("../controllers/comment.controller");
 
 router.post("/register", async (req, res) => {
   const { email, password, role } = req.body;
@@ -27,35 +35,57 @@ router.post("/login", async (req, res) => {
   return res.status(200).json({ token });
 });
 
-async function verifyToken(req, res, next) {
-  try {
-    if (!req.headers.authorization) {
+router.get("/users"),
+  async (req, res) => {
+    try {
+      const users = await User.find({});
+      res.send(users);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  };
+
+router.delete("/users"),
+  async (req, res) => {
+    try {
+      const { id } = req.params;
+      await User.findByIdAndDelete(id);
+      res.json({ message: "User eliminado" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error eliminando la reservación");
+    }
+  },
+
+  async function verifyToken(req, res, next) {
+    try {
+      if (!req.headers.authorization) {
+        return res.status(401).send("Unauhtorized Request");
+      }
+      let token = req.headers.authorization.split(" ")[1];
+      if (token === "null") {
+        return res.status(401).send("Unauhtorized Request");
+      }
+
+      const payload = await jwt.verify(token, "secretkey");
+      if (!payload) {
+        return res.status(401).send("Unauhtorized Request");
+      }
+      req.userId = payload._id;
+      req.userRole = payload.role;
+      next();
+    } catch (e) {
       return res.status(401).send("Unauhtorized Request");
     }
-    let token = req.headers.authorization.split(" ")[1];
-    if (token === "null") {
-      return res.status(401).send("Unauhtorized Request");
-    }
+  };
 
-    const payload = await jwt.verify(token, "secretkey");
-    if (!payload) {
-      return res.status(401).send("Unauhtorized Request");
-    }
-    req.userId = payload._id;
-    req.userRole = payload.role;
-    next();
-  } catch (e) {
-    return res.status(401).send("Unauhtorized Request");
-  }
-}
+router.post("/reservations", createReservation);
+router.get("/reservations", getAllReservations);
+router.put("/reservations/:id", updateReservation);
+router.delete("/reservations/:id", deleteReservation);
 
-router.post('/reservations', createReservation);
-router.get('/reservations', getAllReservations);
-router.put('/reservations/:id', updateReservation);
-router.delete('/reservations/:id', deleteReservation);
-
-router.post('/comments', createComment);
-router.get('/comments', getAllComments);
-
+router.post("/comments", createComment);
+router.get("/comments", getAllComments);
 
 module.exports = router;

@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   private URL = 'http://localhost:4000/api';
   private userEmailKey = 'userEmail';
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   setUserEmail(email: string): void {
     localStorage.setItem(this.userEmailKey, email);
@@ -25,6 +25,14 @@ export class AuthService {
     return this.http.post<any>(this.URL + '/register', user);
   }
 
+  getAllUsers(): Observable<any> {
+    return this.http.get<any>(this.URL + '/users');
+  }
+
+  eliminarUsers(user: any): Observable<any> {
+    return this.http.delete(`${this.URL}/users/${user._id}`);
+  }
+
   signInUser(user: any) {
     return this.http.post<any>(this.URL + '/login', user);
   }
@@ -33,7 +41,7 @@ export class AuthService {
     return !!localStorage.getItem('token');
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem('token');
     this.router.navigateByUrl('/index');
   }
@@ -44,8 +52,8 @@ export class AuthService {
 
   getUserRole() {
     const token = this.getToken();
-    if(!token){
-      return 'user'
+    if (!token) {
+      return 'user';
     }
     const decodedToken: any = jwtDecode(token);
     return decodedToken.role;

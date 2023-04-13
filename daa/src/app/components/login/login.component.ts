@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router'
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { RegisterComponent } from '../register/register.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,10 +14,11 @@ export class LoginComponent {
     password: '',
   };
 
-  constructor(
+  constructor(  
     private authService: AuthService,
     private router: Router,
-    private dialogRef: MatDialogRef<LoginComponent>
+    private dialogRef: MatDialogRef<LoginComponent>,
+    private dialog: MatDialog
   ) {}
   hide = true;
 
@@ -32,4 +34,10 @@ export class LoginComponent {
         err => console.log(err)
       )
   }
+
+  openSignupDialog(): void {
+    this.dialogRef.close();
+    this.dialog.open(RegisterComponent, {});
+  }
+
 }

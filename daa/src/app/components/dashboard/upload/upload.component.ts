@@ -1,6 +1,5 @@
-import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-upload',
@@ -8,23 +7,21 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./upload.component.css'],
 })
 export class UploadComponent {
-  reservationForm: FormGroup;
+  
+  allowedHours = ['6pm', '7pm', '8pm', '9pm'];
+  numOfPeopleAllowed = [1, 2, 3, 4];
+
+  numOfPeople: number | undefined;
+  time: string | undefined;
 
   constructor(
-    public dialogRef: MatDialogRef<UploadComponent>,
-    private formBuilder: FormBuilder
-  ) {
-    this.reservationForm = this.formBuilder.group({
-      numOfPeople: ['', Validators.required],
-      time: ['', Validators.required],
-    });
-  }
-
-  onSave(): void {
-    if (this.reservationForm.valid) {
-      const time = this.reservationForm.get('time')?.value;
-      const numOfPeople = this.reservationForm.get('numOfPeople')?.value;
-      this.dialogRef.close({ numOfPeople, time });
+    public dialogRef: MatDialogRef<UploadComponent>){}
+  
+    onSave(): void {
+      if (this.numOfPeople && this.time) {
+        this.dialogRef.close({ numOfPeople: this.numOfPeople, time: this.time });
+      }
     }
-  }
+    
+  
 }

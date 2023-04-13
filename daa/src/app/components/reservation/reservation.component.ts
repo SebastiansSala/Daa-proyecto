@@ -13,11 +13,9 @@ interface Comment {
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
-  styleUrls: ['./reservation.component.css']
+  styleUrls: ['./reservation.component.css'],
 })
-
 export class ReservationComponent {
-
   comments: Comment[] = [];
 
   allowedHours = ['6pm', '7pm', '8pm', '9pm'];
@@ -27,23 +25,28 @@ export class ReservationComponent {
     date: '',
     time: '',
     numOfPeople: '',
-    email: ''
+    email: '',
   };
 
-  constructor(public authService: AuthService, private dialog: MatDialog, private reservationService: ReservationService, private commentService: CommentService) { }
+  constructor(
+    public authService: AuthService,
+    private dialog: MatDialog,
+    private reservationService: ReservationService,
+    private commentService: CommentService
+  ) {}
 
   today = new Date();
   day = this.today.getDate();
   month = this.today.getMonth() + 1;
   year = this.today.getFullYear();
-  date = `${this.day}/${this.month}/${this.year}`
+  date = `${this.day}/${this.month}/${this.year}`;
 
   onSubmit() {
     this.reservation.email = this.authService.getUserEmail();
     this.reservation.date = this.date;
     this.reservationService.createReservation(this.reservation).subscribe(
-      response => console.log(response),
-      error => console.log(error)
+      (response) => console.log(response),
+      (error) => console.log(error)
     );
   }
 
@@ -52,17 +55,19 @@ export class ReservationComponent {
       (data: any) => {
         this.comments = data;
       },
-      error => console.log(error)
+      (error) => console.log(error)
     );
   }
 
   hide = true;
   openAddDialog() {
-    this.dialog.open(AddComponent, {
-    });
+    this.dialog.open(AddComponent, {});
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getAllComments();
+    setInterval(() => {
+      this.getAllComments();
+    }, 1000); 
   }
 }

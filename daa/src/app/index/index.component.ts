@@ -65,8 +65,4 @@ getMenuItems() {
     this.dialog.open(LoginComponent, {
     });
   }
-  openRegisterDialog() {
-    this.dialog.open(RegisterComponent, {
-    });
-  }
 }

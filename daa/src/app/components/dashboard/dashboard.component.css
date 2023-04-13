@@ -110,7 +110,7 @@ body {
   .main {
     display: flex;
     background-color: #e0e8f5;
-    grid-area: 2 / 2 / 3 / 3;
+    flex-direction: row;
     padding: 4rem;
     gap: 1rem;
     box-shadow: inset 0 5px 5px #e2e8f0;
@@ -129,26 +129,6 @@ body {
   
   .graph {
     width: 100%;
-  }
-  
-  .reservations {
-    width: 60%;
-    order: 2;
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    flex-wrap: wrap;
-    overflow-y: auto;
-  }
-  
-  .card {
-    width: 300px;
-    height: 250px;
-    background-color: #fafaf9;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    border: 2px solid #dfe0eb;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
   
   canvas {

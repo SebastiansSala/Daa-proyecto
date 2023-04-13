@@ -1,13 +1,33 @@
 <div mat-dialog-content>
-  <form [formGroup]="reservationForm">
+  <form>
     <mat-form-field>
-      <input matInput type='number' formControlName="numOfPeople" placeholder="Number of People">
+      <mat-select
+        id="numOfPeople"
+        name="numOfPeople"
+        [(ngModel)]="numOfPeople"
+        placeholder="Number of People"
+        required
+      >
+        <mat-option *ngFor="let ppl of numOfPeopleAllowed" [value]="ppl"
+          >{{ ppl }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="time" formControlName="time" placeholder="Time">
+      <mat-select
+        id="time"
+        name="time"
+        [(ngModel)]="time"
+        required
+        placeholder="Time"
+      >
+        <mat-option *ngFor="let time of allowedHours" [value]="time">{{
+          time
+        }}</mat-option>
+      </mat-select>
     </mat-form-field>
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button color="primary"(click)="onSave()">Save</button>
+  <button mat-button color="primary" (click)="onSave()">Save</button>
 </div>

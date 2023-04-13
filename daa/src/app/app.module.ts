@@ -18,6 +18,8 @@ import { UploadComponent } from './components/dashboard/upload/upload.component'
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { INDEX_COMPONENT } from './index/index.component';
 import { UpdateUserComponent } from './components/dashboard/updateUser/update-user/update-user.component';
+import { ReservacionesComponent } from './components/dashboard/reservaciones/reservaciones/reservaciones.component';
+import { UsuariosComponent } from './components/dashboard/usuarios/usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { UpdateUserComponent } from './components/dashboard/updateUser/update-us
     UploadComponent,
     AddComponent,
     ReservationComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    ReservacionesComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,

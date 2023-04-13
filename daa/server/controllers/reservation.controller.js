@@ -43,20 +43,20 @@ module.exports = {
     try {
       const { id } = req.params;
       const { numOfPeople, time } = req.body;
-  
-      const reservation = await Reservation.findById(id);
-      if (!reservation) {
-        return res.status(404).json({ message: 'Reservation not found' });
+
+      const updatedReservation = await Reservation.findByIdAndUpdate(
+        id,
+        { numOfPeople, time },
+        { new: true }
+      );
+      if (!updatedReservation) {
+        return res.status(404).json({ message: "Reservation not found" });
       }
-      
-      reservation.numOfPeople = numOfPeople;
-      reservation.time = time;
-      const updatedReservation = await reservation.save();
+
       res.json(updatedReservation);
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: 'Internal server error' });
+      res.status(500).json({ message: "Internal server error" });
     }
   },
-  
 };

@@ -26,13 +26,13 @@
                 <span class="material-symbols-outlined" style="font-size: 40px; margin-right: 1em">account_circle</span>
                 <span>Reservar</span>
             </a>
-            <a class="link" routerLink="" routerLinkActive="active">
+            <a class="link"  (click)="selectComponent('reservaciones')">
                 <span class="material-symbols-outlined" style="font-size: 40px; margin-right: 1em">settings</span>
-                <span>Settings</span>
+                <span>Ver Reservaciones</span>
             </a>
-            <a class="link self" routerLink="" routerLinkActive="active">
+            <a class="link" >
                 <span class="material-symbols-outlined" style="font-size: 40px; margin-right: 1em">account_circle</span>
-                <span>Profile</span>
+                <span>Usuarios</span>
             </a>
             <a class="link self" routerLink="" (click)="authService.logout()">
                 <span class="material-symbols-outlined" style="font-size: 40px; margin-right: 1em">keyboard_return</span>
@@ -41,24 +41,14 @@
         </nav>
     </aside>
     <main class="main">
-        <div class="graphs-container">
-            <div class="graph">
-                <canvas id="myChart"></canvas>
-            </div>
-        </div>
-        <div class="reservations">
-            <div class="card" *ngFor="let reservation of reservations">
-                <p>Name: {{ reservation.date }}</p>
-                <p>Guests: {{ reservation.numOfPeople }}</p>
-                <p>Time: {{ reservation.time }}</p>
-                <p>Name: {{ reservation.email }}</p>
-                <button mat-icon-button color="warn" (click)="removeReservation(reservation)">
-                    <mat-icon>delete</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" (click)="editReservation(reservation)">
-                    <mat-icon>edit</mat-icon>
-                </button>
-            </div>
-        </div>
+        <ng-container *ngIf="selectedComponent === null">
+            <router-outlet></router-outlet>
+          </ng-container>
+          <ng-container *ngIf="selectedComponent === 'reservaciones'">
+            <app-reservaciones></app-reservaciones>
+          </ng-container>
+          <ng-container *ngIf="selectedComponent === 'usuarios'">
+            <app-usuarios></app-usuarios>
+          </ng-container>
     </main>
 </body>

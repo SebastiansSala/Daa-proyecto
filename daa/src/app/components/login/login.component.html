@@ -1,42 +1,48 @@
 <div class="formContainer">
-  <form (ngSubmit)="onSubmit()">
+  <form>
     <h1>Iniciar sesión</h1>
-    <mat-form-field appearance="fill">
-      <mat-label for="email">Enter your email</mat-label>
-      <input
-        matInput
-        placeholder="pat@example.com"
-        id="email"
-        name="email"
-        [(ngModel)]="user.email"
-        required
-      />
-      <button mat-icon-button matSuffix>
-        <mat-icon class="material-icons">email</mat-icon>
-      </button>
-    </mat-form-field>
+    <div class="formField">
+      <mat-form-field appearance="fill">
+        <mat-label for="email">Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          id="email"
+          name="email"
+          [(ngModel)]="user.email"
+          required
+        />
+        <button mat-icon-button matSuffix>
+          <mat-icon class="material-icons">email</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
 
-    <mat-form-field appearance="fill">
-      <mat-label for="password">Enter your password</mat-label>
-      <input
-        matInput
-        [type]="hide ? 'password' : 'text'"
-        id="password"
-        name="password"
-        [(ngModel)]="user.password"
-      />
-      <button
-        mat-icon-button
-        matSuffix
-        (click)="hide = !hide"
-        [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide"
-      >
-        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-      </button>
-    </mat-form-field>
+    <div class="formField">
+      <mat-form-field appearance="fill">
+        <mat-label for="password">Enter your password</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          id="password"
+          name="password"
+          [(ngModel)]="user.password"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
 
-    <p>Forgot Password?</p>
-    <button type="submit">LOGIN</button>
+    <div class="formButtons">
+      <button mat-raised-button (click)="onSubmit()">LOGIN</button>
+      <button mat-raised-button color="primary" (click)="openSignupDialog()">SignUp</button>
+    </div>
   </form>
 </div>

@@ -91,17 +91,17 @@
                             <mat-card-content>
                                 <div>
                                     <label for="time">Hora</label>
-                                    <select  id="time" name="time" [(ngModel)]="reservation.time" required>
-                                        <option *ngFor="let time of allowedHours" [value]="time">{{ time }}</option>
-                                    </select>
+                                    <mat-select  id="time" name="time" [(ngModel)]="reservation.time" required>
+                                        <mat-option *ngFor="let time of allowedHours" [value]="time">{{ time }}</mat-option>
+                                    </mat-select>
                                 </div>
                                 <div>
                                     <label for="numOfPeople">Num Of People</label>
-                                    <select  id="numOfPeople" name="numOfPeople"
+                                    <mat-select  id="numOfPeople" name="numOfPeople"
                                         [(ngModel)]="reservation.numOfPeople" required>
-                                        <option *ngFor="let ppl of numOfPeopleAllowed" [value]="ppl">{{ ppl }}
-                                        </option>
-                                    </select>
+                                        <mat-option *ngFor="let ppl of numOfPeopleAllowed" [value]="ppl">{{ ppl }}
+                                        </mat-option>
+                                    </mat-select>
                                 </div>
                                 <button type="submit">Reservar</button>
                             </mat-card-content>

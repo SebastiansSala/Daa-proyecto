@@ -6,6 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
+import { ReservacionesComponent } from './components/dashboard/reservaciones/reservaciones/reservaciones.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { roles: ['admin'] },
   },
+  {path: 'reservaciones', component: ReservacionesComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
 ];

@@ -51,7 +51,7 @@ async function verifyToken(req, res, next) {
 
 router.post('/reservations', createReservation);
 router.get('/reservations', getAllReservations);
-router.put('/reservations', updateReservation);
+router.put('/reservations/:id', updateReservation);
 router.delete('/reservations/:id', deleteReservation);
 
 router.post('/comments', createComment);

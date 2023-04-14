@@ -2,6 +2,7 @@ const { Router } = require("express");
 const router = Router();
 
 const User = require("../models/User");
+const bcrypt = require('bcrypt');
 
 const jwt = require("jsonwebtoken");
 const {
@@ -17,7 +18,8 @@ const {
 
 router.post("/register", async (req, res) => {
   const { email, password, role } = req.body;
-  const newUser = new User({ email, password, role });
+  const hashedPassword = await bcrypt.hash(password, 10); 
+  const newUser = new User({ email, password: hashedPassword, role }); 
   await newUser.save();
   const token = await jwt.sign({ _id: newUser._id }, "secretkey");
   res.status(200).json({ token });
@@ -27,13 +29,17 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
-  if (!user) return res.status(401).send("The email doesnt exists");
-  if (user.password !== password) return res.status(401).send("Wrong Password");
+  if (!user) return res.status(401).send("The email doesn't exist");
+
+  const isPasswordValid = await bcrypt.compare(password, user.password);
+  if (!isPasswordValid) return res.status(401).send("Wrong Password");
 
   const token = jwt.sign({ _id: user._id, role: user.role }, "secretkey");
 
   return res.status(200).json({ token });
 });
+
+
 
 
 router.get("/users", async (req, res) => {
@@ -49,11 +55,10 @@ router.get("/users", async (req, res) => {
 router.delete("/users/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const user = await User.findById(id);
+    const user = await User.findByIdAndDelete(id);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-    await user.remove();
     res.json({ message: "User deleted successfully" });
   } catch (error) {
     console.error(error);

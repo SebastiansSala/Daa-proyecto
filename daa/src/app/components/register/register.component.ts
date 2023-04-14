@@ -26,16 +26,20 @@ export class RegisterComponent {
 
   onSubmit(): void {
     if (this.userForm.valid) {
-      this.authService.signUpUser(this.userForm.value)
+      const user = {
+        email: this.userForm.value.email,
+        password: this.userForm.value.password,
+        role: this.userForm.value.role
+      };
+      this.authService.signUpUser(user)
         .subscribe(
           res => {
             console.log(res);
-            console.log(this.userForm.value)
             localStorage.setItem('token', res.token);
             this.dialogRef.close();
           },
           err => console.log(err)
         );
-    }
   }
+}
 }

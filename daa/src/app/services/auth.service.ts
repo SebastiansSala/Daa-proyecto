@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
 import { Observable } from 'rxjs';
+import * as bcrypt from 'bcryptjs';
 
 @Injectable({
   providedIn: 'root',
@@ -25,16 +26,16 @@ export class AuthService {
     return this.http.post<any>(this.URL + '/register', user);
   }
 
+  signInUser(user: any) {
+    return this.http.post<any>(this.URL + '/login', user);
+  }
+
   getAllUsers(): Observable<any> {
     return this.http.get<any>(this.URL + '/users');
   }
 
   eliminarUsuario(id: string): Observable<any> {
     return this.http.delete(`${this.URL}/users/${id}`);
-  }
-
-  signInUser(user: any) {
-    return this.http.post<any>(this.URL + '/login', user);
   }
 
   loggedIn() {

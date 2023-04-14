@@ -27,10 +27,10 @@ export class LoginComponent {
     this.authService.signInUser(this.user)
       .subscribe(
         res => {
-          localStorage.setItem('token', res.token);
-          this.authService.setUserEmail(this.user.email);
-          this.dialogRef.close();
-          this.authService.getUserRole() === 'client' ? this.router.navigate(['/reservar']) : this.router.navigate(['/dashboard']);
+            localStorage.setItem('token', res.token);
+            this.authService.setUserEmail(this.user.email);
+            this.dialogRef.close();
+            this.authService.getUserRole() === 'client' ? this.router.navigate(['/reservar']) : this.router.navigate(['/dashboard']);
         },
         err => console.log(err)
       )

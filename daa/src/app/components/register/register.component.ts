@@ -34,7 +34,6 @@ export class RegisterComponent {
       this.authService.signUpUser(user)
         .subscribe(
           res => {
-            console.log(res);
             localStorage.setItem('token', res.token);
             this.dialogRef.close();
           },

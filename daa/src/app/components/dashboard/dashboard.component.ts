@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class DashboardComponent {
   constructor(public authService: AuthService) {}
-  selectedComponent: string = '';
+  selectedComponent: string = 'reservaciones';
   selectComponent(componentName: string): void {
     this.selectedComponent = componentName;
   }

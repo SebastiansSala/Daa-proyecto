@@ -18,8 +18,6 @@ export class ReservationService {
   }
 
   updateReservation(_id: string, reservation: any): Observable<any> {
-    console.log(reservation);
-    console.log(_id)
     return this.http.put(
       `${this.URL}/reservations/${_id}`, reservation);
   }

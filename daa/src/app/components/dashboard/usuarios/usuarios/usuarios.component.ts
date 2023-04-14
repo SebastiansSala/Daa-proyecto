@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-
+import Swal from 'sweetalert2';
 interface User{
   _id: string;
   email: string;
@@ -20,16 +20,32 @@ export class UsuariosComponent {
   constructor(private authService: AuthService) {}
 
   deleteUser(user: any): void {
-    const index = this.users.indexOf(user);
-    if (index >= 0) {
-      this.users.splice(index, 1);
-    }
-    this.authService
-      .eliminarUsuario(user._id)
-      .subscribe((res) => {
-        this.getAllUsers();
-      });
-      console.log(user._id)
+    Swal.fire({
+      title: 'Estas seguro?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Borrar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const index = this.users.indexOf(user);
+        if (index >= 0) {
+          this.users.splice(index, 1);
+        }
+        this.authService
+          .eliminarUsuario(user._id)
+          .subscribe((res) => {
+            this.getAllUsers();
+          });
+        Swal.fire(
+          'Deleted!',
+          'Usuario borrado.',
+          'success'
+        )
+      }
+    })
   }
 
   getAllUsers(): void {

@@ -90,6 +90,9 @@
                             </mat-card-header>
                             <mat-card-content>
                                 <mat-form-field>
+                                    <input matInput id="nombre" name="nombre" [(ngModel)]="reservation.nombre" placeholder='Nombre' required>
+                                </mat-form-field>
+                                <mat-form-field>
                                     <mat-select  id="time" name="time" [(ngModel)]="reservation.time" placeholder='Hora' required>
                                         <mat-option *ngFor="let time of allowedHours" [value]="time">{{ time }}</mat-option>
                                     </mat-select>

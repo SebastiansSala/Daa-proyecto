@@ -1,9 +1,10 @@
 <div class="reservations">
 <div class="card" *ngFor="let reservation of reservations; let i = index" [style.background-color]="colors[i % colors.length]">
-    <p>Name: {{ reservation.date }}</p>
+    <p>Nombre: {{ reservation.name }}</p>
+    <p>Date: {{ reservation.date }}</p>
     <p>Guests: {{ reservation.numOfPeople }}</p>
-    <p>Time: {{ reservation.time }}</p>
-    <p>Name: {{ reservation.email }}</p>
+    <p>Hora: {{ reservation.time }}</p>
+    <p>email: {{ reservation.email }}</p>
     <button mat-icon-button color="primary" (click)="removeReservation(reservation)">
         <mat-icon>delete</mat-icon>
     </button>

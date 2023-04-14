@@ -24,6 +24,7 @@ export class ReservationComponent {
 
   reservation = {
     date: '',
+    nombre: '',
     time: '',
     numOfPeople: '',
     email: '',

@@ -20,6 +20,7 @@ import { INDEX_COMPONENT } from './index/index.component';
 import { ReservacionesComponent } from './components/dashboard/reservaciones/reservaciones.component';
 import { UsuariosComponent } from './components/dashboard/usuarios/usuarios/usuarios.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { AddUserComponent } from './components/dashboard/usuarios/usuarios/add/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     AddComponent,
     ReservationComponent,
     ReservacionesComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

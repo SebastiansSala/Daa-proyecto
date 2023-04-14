@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { AddUserComponent } from './add/add-user/add-user.component';
+import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 interface User{
   _id: string;
@@ -17,7 +19,7 @@ export class UsuariosComponent {
 
   users: User[] = [];
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private dialog: MatDialog) {}
 
   deleteUser(user: any): void {
     Swal.fire({
@@ -47,7 +49,12 @@ export class UsuariosComponent {
       }
     })
   }
-
+  hide = true;
+  openAddDialog() {
+    this.dialog.open(AddUserComponent, {
+    });
+  }
+  
   getAllUsers(): void {
     this.authService.getAllUsers().subscribe((users: any) => {
       this.users = users;
@@ -58,7 +65,10 @@ export class UsuariosComponent {
   }
 
   ngOnInit(){
-    this.getAllUsers()
+    this.getAllUsers();
+    setInterval(() => {
+      this.getAllUsers();
+    }, 1000); 
   }
 
 }

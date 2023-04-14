@@ -1,0 +1,58 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="register-form">
+    <div class="inputs">
+      <mat-form-field appearance="fill">
+        <mat-label for="email">Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          id="email"
+          name="email"
+          formControlName="email"
+        />
+        <button mat-icon-button matSuffix>
+          <mat-icon class="material-icons">email</mat-icon>
+        </button>
+        <mat-error *ngIf="userForm.get('email')?.hasError('required')">
+          Email es requerido
+        </mat-error>
+        <mat-error *ngIf="userForm.get('email')?.hasError('email')">
+          Email no válido
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label for="password">Enter your password</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          id="password"
+          name="password"
+          formControlName="password"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        <mat-error *ngIf="userForm.get('password')?.hasError('required')">
+          Password es requerido
+        </mat-error>
+        <mat-error *ngIf="userForm.get('password')?.hasError('minlength')">
+          Password debe tener al menos 6 caracteres
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="user-type">
+      <p>Seleccione el tipo de usuario:</p>
+      <mat-radio-group formControlName="role">
+        <mat-radio-button value="admin">Administrador</mat-radio-button>
+        <mat-radio-button value="client">Cliente</mat-radio-button>
+      </mat-radio-group>
+    </div> 
+    <div class="submit">
+      <button mat-raised-button [disabled]="userForm.invalid">Agregar Usuario</button>
+    </div>
+  </form>

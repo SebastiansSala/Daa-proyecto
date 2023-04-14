@@ -19,6 +19,7 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import { INDEX_COMPONENT } from './index/index.component';
 import { ReservacionesComponent } from './components/dashboard/reservaciones/reservaciones.component';
 import { UsuariosComponent } from './components/dashboard/usuarios/usuarios/usuarios.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { UsuariosComponent } from './components/dashboard/usuarios/usuarios/usua
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [
     {provide: INDEX_COMPONENT, useClass: IndexComponent},

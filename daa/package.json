@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
+    "@sweetalert2/ngx-sweetalert2": "^12.1.0",
     "@types/jwt-decode": "^3.1.0",
     "@types/mongoose": "^5.11.97",
     "@types/node": "^18.15.11",
@@ -36,8 +37,10 @@
     "jwt-decode": "^3.1.2",
     "mongoose": "^7.0.3",
     "morgan": "^1.10.0",
+    "ngx-toastr": "^16.1.0",
     "rxjs": "~7.8.0",
     "stream-browserify": "^3.0.0",
+    "sweetalert2": "^11.7.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },

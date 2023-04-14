@@ -89,20 +89,18 @@
                                 <h1>Haz una Reservacion</h1>
                             </mat-card-header>
                             <mat-card-content>
-                                <div>
-                                    <label for="time">Hora</label>
-                                    <mat-select  id="time" name="time" [(ngModel)]="reservation.time" required>
+                                <mat-form-field>
+                                    <mat-select  id="time" name="time" [(ngModel)]="reservation.time" placeholder='Hora' required>
                                         <mat-option *ngFor="let time of allowedHours" [value]="time">{{ time }}</mat-option>
                                     </mat-select>
-                                </div>
-                                <div>
-                                    <label for="numOfPeople">Num Of People</label>
+                                </mat-form-field>
+                                <mat-form-field>
                                     <mat-select  id="numOfPeople" name="numOfPeople"
-                                        [(ngModel)]="reservation.numOfPeople" required>
+                                        [(ngModel)]="reservation.numOfPeople" placeholder='Guests' required>
                                         <mat-option *ngFor="let ppl of numOfPeopleAllowed" [value]="ppl">{{ ppl }}
                                         </mat-option>
                                     </mat-select>
-                                </div>
+                                </mat-form-field>
                                 <button type="submit">Reservar</button>
                             </mat-card-content>
                         </form>

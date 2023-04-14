@@ -4,6 +4,7 @@ import { ReservationService } from 'src/app/services/reservation.service';
 import { CommentService } from 'src/app/services/comment.service';
 import { AddComponent } from './add/add/add.component';
 import { MatDialog } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 interface Comment {
   comentario: string;
@@ -32,7 +33,7 @@ export class ReservationComponent {
     public authService: AuthService,
     private dialog: MatDialog,
     private reservationService: ReservationService,
-    private commentService: CommentService
+    private commentService: CommentService,
   ) {}
 
   today = new Date();
@@ -45,7 +46,14 @@ export class ReservationComponent {
     this.reservation.email = this.authService.getUserEmail();
     this.reservation.date = this.date;
     this.reservationService.createReservation(this.reservation).subscribe(
-      (response) => console.log(response),
+      (response) => {
+        console.log(response)
+        Swal.fire(
+          'Reservacion Exitosa!',
+          '',
+          'success'
+        )
+      },
       (error) => console.log(error)
     );
   }
